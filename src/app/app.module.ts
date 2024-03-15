@@ -10,6 +10,7 @@ import { CoursesStoreService } from "@app/services/courses-store.service";
 import { CoursesService } from "@app/services/courses.service";
 import { CoursesComponent } from "./features/courses/courses.component";
 import { CoursesListComponent } from "./features/courses/courses-list/courses-list.component";
+import { EmailValidatorDirective } from "./shared/directives/email.directive";
 
 @NgModule({
 	declarations: [
@@ -17,6 +18,7 @@ import { CoursesListComponent } from "./features/courses/courses-list/courses-li
 		CourseInfoComponent,
 		CoursesComponent,
 		CoursesListComponent,
+		EmailValidatorDirective,
 	],
 	imports: [BrowserModule, SharedModule, FontAwesomeModule],
 	providers: [
