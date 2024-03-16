@@ -12,6 +12,7 @@
 						placeholder="add email"
 						appEmailValidator
 						ngModel
+						name="email"
 					/>
 					<span
 						*ngIf="loginForm.controls.email?.errors?.invalidEmail"
@@ -29,6 +30,7 @@
 						placeholder="Input text"
 						ngModel
 						required
+						name="password"
 					/>
 					<!-- <span id="passwordErrorMessage" class="text-danger"
 						>Password is required.</span
