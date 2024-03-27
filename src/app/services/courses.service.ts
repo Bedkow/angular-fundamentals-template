@@ -1,42 +1,48 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
-    providedIn: 'root'
+	providedIn: "root",
 })
 export class CoursesService {
-    getAll() {
-        // Add your code here
-    }
+	private apiUrl = "your_api_endpoint"; // Update with your API endpoint
 
-    createCourse(course: any) { // replace 'any' with the required interface
-        // Add your code here
-    }
+	constructor(private http: HttpClient) {}
 
-    editCourse(id: string, course: any) { // replace 'any' with the required interface
-        // Add your code here
-    }
+	getAll(): Observable<any> {
+		return this.http.get(`${this.apiUrl}/courses`);
+	}
 
-    getCourse(id: string) {
-        // Add your code here
-    }
+	createCourse(courseData: any): Observable<any> {
+		return this.http.post(`${this.apiUrl}/courses`, courseData);
+	}
 
-    deleteCourse(id: string) {
-        // Add your code here
-    }
+	editCourse(courseId: string, courseData: any): Observable<any> {
+		return this.http.put(`${this.apiUrl}/courses/${courseId}`, courseData);
+	}
 
-    filterCourses(value: string) {
-        // Add your code here
-    }
+	getCourse(courseId: string): Observable<any> {
+		return this.http.get(`${this.apiUrl}/courses/${courseId}`);
+	}
 
-    getAllAuthors() {
-        // Add your code here
-    }
+	deleteCourse(courseId: string): Observable<any> {
+		return this.http.delete(`${this.apiUrl}/courses/${courseId}`);
+	}
 
-    createAuthor(name: string) {
-        // Add your code here
-    }
+	filterCourses(queryParams: any): Observable<any> {
+		return this.http.get(`${this.apiUrl}/courses`, { params: queryParams });
+	}
 
-    getAuthorById(id: string) {
-        // Add your code here
-    }
+	getAllAuthors(): Observable<any> {
+		return this.http.get(`${this.apiUrl}/authors`);
+	}
+
+	createAuthor(authorData: any): Observable<any> {
+		return this.http.post(`${this.apiUrl}/authors`, authorData);
+	}
+
+	getAuthorById(authorId: string): Observable<any> {
+		return this.http.get(`${this.apiUrl}/authors/${authorId}`);
+	}
 }

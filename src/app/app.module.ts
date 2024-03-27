@@ -11,6 +11,7 @@ import { CoursesService } from "@app/services/courses.service";
 import { CoursesComponent } from "./features/courses/courses.component";
 import { CoursesListComponent } from "./features/courses/courses-list/courses-list.component";
 import { EmailValidatorDirective } from "./shared/directives/email.directive";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
 	declarations: [
@@ -20,12 +21,13 @@ import { EmailValidatorDirective } from "./shared/directives/email.directive";
 		CoursesListComponent,
 		EmailValidatorDirective,
 	],
-	imports: [BrowserModule, SharedModule, FontAwesomeModule],
+	imports: [BrowserModule, SharedModule, FontAwesomeModule, HttpClientModule],
 	providers: [
 		AuthorizedGuard,
 		NotAuthorizedGuard,
 		CoursesService,
 		CoursesStoreService,
+		{ provide: Window, useValue: window },
 	],
 	bootstrap: [AppComponent],
 })
