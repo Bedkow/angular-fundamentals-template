@@ -28,7 +28,6 @@ import { WindowService } from "./services/window.service";
 		NotAuthorizedGuard,
 		CoursesService,
 		CoursesStoreService,
-		{ provide: Window, useValue: window },
 		WindowService,
 	],
 	bootstrap: [AppComponent],

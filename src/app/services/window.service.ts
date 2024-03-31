@@ -1,15 +1,12 @@
-import { Injectable } from "@angular/core";
+import { FactoryProvider, InjectionToken } from "@angular/core";
 
-function _window(): any {
-	// return the global native browser window object
+export const WINDOW = new InjectionToken<Window>("window");
+
+export const WindowService: FactoryProvider = {
+	provide: WINDOW,
+	useFactory: getWindow,
+};
+
+export function getWindow(): Window {
 	return window;
-}
-
-@Injectable({
-	providedIn: "root",
-})
-export class WindowService {
-	get nativeWindow(): any {
-		return _window();
-	}
 }

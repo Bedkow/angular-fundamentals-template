@@ -1,5 +1,6 @@
-import { NgModule } from "@angular/core";
+import { Inject, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { WINDOW } from "@app/services/window.service";
 // Import and declare any components and services related to the courses module here
 
 @NgModule({
@@ -14,4 +15,6 @@ import { CommonModule } from "@angular/common";
 		// Services specific to courses can be provided here
 	],
 })
-export class CoursesModule {}
+export class CoursesModule {
+	constructor(@Inject(WINDOW) private window: Window) {}
+}
