@@ -12,7 +12,7 @@ import { CoursesComponent } from "./features/courses/courses.component";
 import { CoursesListComponent } from "./features/courses/courses-list/courses-list.component";
 import { EmailValidatorDirective } from "./shared/directives/email.directive";
 import { HttpClientModule } from "@angular/common/http";
-import { WindowService as WindowServiceProvider } from "./services/window.service";
+import { WindowService } from "./services/window.service";
 
 @NgModule({
 	declarations: [
@@ -28,7 +28,7 @@ import { WindowService as WindowServiceProvider } from "./services/window.servic
 		NotAuthorizedGuard,
 		CoursesService,
 		CoursesStoreService,
-		WindowServiceProvider,
+		WindowService,
 	],
 	bootstrap: [AppComponent],
 })

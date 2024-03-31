@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DurationPipe } from "./pipes/duration.pipe";
 import { CustomDatePipe } from "./pipes/custom-date.pipe";
 import { EmailValidatorDirective } from "@shared/directives/email.directive";
+import { WindowService } from "@app/services/window.service";
 
 const components = [
 	HeaderComponent,
@@ -35,5 +36,6 @@ const components = [
 	declarations: [components],
 	imports: [CommonModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
 	exports: [components],
+	providers: [WindowService],
 })
 export class SharedModule {}

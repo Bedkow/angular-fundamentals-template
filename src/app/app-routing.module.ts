@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { NotAuthorizedGuard } from "./auth/guards/not-authorized.guard";
 import { AuthorizedGuard } from "./auth/guards/authorized.guard";
+import { WindowService } from "./services/window.service";
 
 const routes: Routes = [
 	{
@@ -39,5 +40,6 @@ const routes: Routes = [
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule],
+	providers: [WindowService],
 })
 export class AppRoutingModule {}
