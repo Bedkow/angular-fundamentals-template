@@ -18,6 +18,9 @@ interface UserRegistration {
 	providedIn: "root",
 })
 export class AuthService {
+	getToken() {
+		throw new Error("Method not implemented.");
+	}
 	private isAuthorized$$ = new BehaviorSubject<boolean>(false);
 
 	constructor(

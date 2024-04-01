@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { NotAuthorizedGuard } from "./auth/guards/not-authorized.guard";
 import { AuthorizedGuard } from "./auth/guards/authorized.guard";
-import { WindowService } from "./services/window.service";
+import { AdminGuard } from "./user/guards/admin.guard";
 
 const routes: Routes = [
 	{
@@ -26,6 +26,30 @@ const routes: Routes = [
 		canLoad: [AuthorizedGuard],
 	},
 	{
+		path: "courses/add",
+		loadChildren: () =>
+			import("./features/courses/add-course/add-course.module").then(
+				(m) => m.AddCourseModule
+			),
+		canLoad: [AdminGuard],
+	},
+	{
+		path: "courses/:id",
+		loadChildren: () =>
+			import("./features/courses/course-detail/course-detail.module").then(
+				(m) => m.CourseDetailModule
+			),
+		canLoad: [AuthorizedGuard],
+	},
+	{
+		path: "courses/edit/:id",
+		loadChildren: () =>
+			import("./features/courses/edit-course/edit-course.module").then(
+				(m) => m.EditCourseModule
+			),
+		canLoad: [AdminGuard],
+	},
+	{
 		path: "",
 		redirectTo: "/courses",
 		pathMatch: "full",
@@ -40,6 +64,5 @@ const routes: Routes = [
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule],
-	providers: [WindowService],
 })
 export class AppRoutingModule {}
